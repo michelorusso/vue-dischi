@@ -47,7 +47,6 @@ header img {
 main {
     background-color: #1e2e3c;
     padding: 30px;
-    height: calc( 100% - 55px);
 }
 
 .song-container {
