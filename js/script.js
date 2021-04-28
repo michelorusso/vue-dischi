@@ -8,15 +8,31 @@ var app = new Vue(
     el: '#root',
     data: {  
         songList: [],
+        selectType: 'ALL',
     }, 
     methods: {
+        genreSong( arraySong, typeSong) {
+            
+            let newArray = [];
+
+            if ( typeSong == "ALL") {
+
+                newArray = arraySong;
+
+            } else {
+
+                newArray = arraySong.filter(element => element.genre == typeSong);
+            }
+
+            return newArray;
+        }
     },
     mounted() {
         axios.get('https://flynn.boolean.careers/exercises/api/array/music ')
             .then((response) => {
                 const result = response.data;
-
                 this.songList = result.response ;
+                console.log(result.response);
             });
     }
 });

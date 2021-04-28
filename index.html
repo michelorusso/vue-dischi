@@ -32,10 +32,14 @@
             <div class="input-text">
                 <label for="type"></label>
 
-                <select id="type">
+                <select v-model="selectType">
 
-                    <option value="">All</option>
-    
+                    <option>ALL</option>
+                    <option>Rock</option>
+                    <option>Pop</option>
+                    <option>Jazz</option>
+                    <option>Metal</option>
+
                 </select>
             </div>
             
@@ -47,8 +51,8 @@
             <div class="song-container">
 
                 <!-- Single-song -->
-                <div class="single-song" v-for=" song in songList">
-                    <img :src="song.poster" alt="">
+                <div class="single-song" v-for=" song in genreSong( songList, selectType)">
+                    <img :src="song.poster" :alt="song.title">
                     <h4>{{ song.title }}</h4>
                     <p>{{ song.author }}</p>
                     <p class="year">{{ song.year }}</p>
